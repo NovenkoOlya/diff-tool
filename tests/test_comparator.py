@@ -27,3 +27,8 @@ def test_get_intersections(set1, set2, expected):
 ])
 def test_get_differences(set1, set2, expected):
     assert get_differences(set1, set2) == expected
+
+def test_read_file_lines(temp_files):
+    f1, _ = temp_files
+    lines = read_file_lines(str(f1))
+    assert lines == {"apple", "banana", "cherry"}
