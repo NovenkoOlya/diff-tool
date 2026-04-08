@@ -14,3 +14,22 @@ def get_intersections(set1, set2):
 def get_differences(set1, set2):
     """Повертає унікальні для обох файлів рядки (симетрична різниця)."""
     return set1.symmetric_difference(set2)
+
+def write_to_file(file_path, lines):
+    """Записує список рядків у файл."""
+    with open(file_path, 'w', encoding='utf-8') as f:
+        for line in sorted(lines):
+            f.write(f"{line}\n")
+
+def main(file1, file2):
+    lines1 = read_file_lines(file1)
+    lines2 = read_file_lines(file2)
+    
+    same = get_intersections(lines1, lines2)
+    diff = get_differences(lines1, lines2)
+    
+    write_to_file("same.txt", same)
+    write_to_file("diff.txt", diff)
+
+if __name__ == "__main__":
+    main("file1.txt", "file2.txt")
