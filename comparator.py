@@ -10,3 +10,7 @@ def read_file_lines(file_path):
 def get_intersections(set1, set2):
     """Повертає спільні рядки."""
     return set1.intersection(set2)
+
+def get_differences(set1, set2):
+    """Повертає унікальні для обох файлів рядки (симетрична різниця)."""
+    return set1.symmetric_difference(set2)
