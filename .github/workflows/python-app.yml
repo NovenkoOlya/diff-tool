@@ -32,3 +32,10 @@ jobs:
     - name: Test with pytest and generate report
       run: |
         pytest --html=report.html --self-contained-html
+        
+    - name: Upload Pytest report
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: html-report-files
+        path: report.html
